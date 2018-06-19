@@ -37,7 +37,7 @@
             `,
             data: {
                 translateX: 0,
-                speed: 300,
+                speed: 0,
                 oldPoint: null,
                 startX: 0,
                 btnsWidth: 0
@@ -45,7 +45,7 @@
             methods: {
                 touchstart(e) {
                     this.oldPoint = e.touches[0],
-                    this.speed = 0;
+                    this.speed = 300;
                     this.startX = this.translateX;
                     // console.log(this.oldPoint)
                 },
