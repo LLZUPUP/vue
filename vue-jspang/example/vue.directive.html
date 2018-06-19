@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>vue.directive 自定义指令</h1>
+    <hr>
+    <div id="app">
+        <div v-llz="color">{{num}}</div>
+        <p><button @click="add">加</button></p>
+    </div>
+    <p>
+        <button onclick="unbind()">解绑</button>
+    </p>
+     
+    <script>
+        function unbind(){
+            app.$destroy();
+        }
+        // Vue.directive("llz",function(el,binding){
+        //     console.log(el);
+        //     console.log(binding)
+        //     el.style="color:"+binding.value;
+        // })
+        Vue.directive("llz",{
+            bind:function(el,binding) {
+                console.log('1-bind');
+            },
+            inserted:function() {
+                console.log('2-inserted')
+            },
+            update:function() {
+                console.log('3-update')
+            },
+            componentUpdated:function() {
+                console.log('4-componentUpdated')
+            },
+            unbind:function() {
+                console.log('5-unbind');
+            }
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num:10,
+                color: 'green'
+            },
+            methods: {
+                add:function() {
+                    this.num++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

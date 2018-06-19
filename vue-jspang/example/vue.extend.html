@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.extend 扩展实例构造器</h1>
+    <hr>
+    <author id="author"></author>
+     
+    <script>
+        var authorURL = Vue.extend({
+            template: "<p><a href=''>{{authorName}}</a></p>",
+            data:function() {
+                return {
+                    authorName: 'JSPang',
+                    authorURL:"https://cn.bing.com/"
+                }
+            }
+        });
+
+        new authorURL().$mount("#author")
+    </script>
+</body>
+</html>
