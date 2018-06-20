@@ -8,22 +8,20 @@
     <script src="../asset/js/vue.js"></script>
 </head>
 <body>
-    <h1>Vue.extend 扩展实例构造器</h1>
+    <h1>propsData option</h1>
     <hr>
-    <author id="author"></author>
+    <header></header>
      
     <script>
-        var authorURL = Vue.extend({
-            template: "<p><a :href='authorURL'>{{authorName}}</a></p>",
-            data:function() {
+        var header_a =Vue.extend({
+            template: `<p>{{message}}</p>`,
+            data(){
                 return {
-                    authorName: 'JSPang',
-                    authorURL:"https://cn.bing.com/"
+                    message: "hello world ,I'am header!"
                 }
             }
         });
-
-        new authorURL().$mount("#author")
+        new header_a().$mount('header')
     </script>
 </body>
 </html>

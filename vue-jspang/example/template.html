@@ -12,6 +12,12 @@
     <div id="app">
         <p>{{message}}</p>
     </div>
+    <template id="dd2">
+        <h2 style="color:red">我是template标签模版</h2>
+    </template>
+    <script  id="dd3">
+        <h2 style="color:red">我是script模版</h2>
+    </script>
      
     <script>
         var app = new Vue({
@@ -19,9 +25,10 @@
             data: {
                 message: 'hello world!'
             },
-            template: `
-                <h2 style="color:red">我是选项模版</h2>
-            `
+            template: '#dd3'
+            // template: `
+            //     <h2 style="color:red">我是选项模版</h2>
+            // `
 
         })
     </script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>Component组件</h1>
+    <hr>
+    <div id="app">
+        <llz></llz>
+        <panda :here="message"></panda>
+        <qiqi from-here="llz"></qiqi>
+    </div>
+     
+    <script>
+        Vue.component('llz',{
+            template: `<h2 style="color:green">我是全局的llz组件</h2>`
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: 'Chinaaa'
+            },
+            components: {
+                "panda":{
+                    template: `<h2 style="color:blue">Panda from {{here}}</h2>`,
+                    props: ['here']
+                },
+                "qiqi":{
+                    template: `<h2 style="color:yellow">qiqi是{{fromHere}}的</h2>`,
+                    props: ['fromHere']
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

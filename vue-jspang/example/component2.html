@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>Component组件</h1>
+    <hr>
+    <div id="app">
+        <llz here="China"></llz>
+        
+    </div>
+     
+    <script>
+        var city = {
+            template: `
+            <h2 style="color: red">sichuan of China</h2>
+            `,
+        }
+        var llzComponent = {
+            template: `
+            <div>
+            <h2 style="color: skyblue">Panda from {{here}}</h2>
+            <city></city>
+            </div>
+            `,
+            props:['here'],
+            components: {
+                'city':city
+            }
+        }
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: 'Chinaaa'
+            },
+            components: {
+                "llz": llzComponent,
+            }
+            
+        })
+    </script>
+</body>
+</html>
