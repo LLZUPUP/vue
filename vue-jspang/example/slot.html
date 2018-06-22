@@ -8,17 +8,39 @@
     <script src="../asset/js/vue.js"></script>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Slot Content extend demo</h1>
     <hr>
     <div id="app">
-        <p>{{message}}</p>
+        <llz>
+            <span slot="wangzhan">{{llzData.url}}</span>
+            <span slot="netName">微软bing应</span>
+            <span slot="skill">{{llzData.skill}}</span>
+        </llz>
     </div>
+    <template id="tep">
+        <div>
+            <p>网站地址：<slot name="wangzhan"></slot></p>
+            <p>网名：<slot name="netName"></slot></p>
+            <p>网站功能：<slot name="skill"></slot></p>
+            
+        </div>
+    </template>
      
     <script>
+        var ll = {
+            template:`#tep`
+        }
         var app = new Vue({
             el: "#app",
             data: {
-                message: 'hello world!'
+                llzData: {
+                    url: 'https://cn.bing.com/',
+                    netName: 'Bing应',
+                    skill: '搜索'
+                }
+            },
+            components:{
+                "llz":ll
             }
         })
     </script>
