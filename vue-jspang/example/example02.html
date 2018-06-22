@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>example02</h1>
+    <hr>
+    <div id="app">
+
+    </div>
+    <button onclick="destroy()">卸载</button>
+    <button onclick="reload()">刷新</button>
+    <button onclick="tick()">更改数据</button>
+     
+    <script>
+        var llz = Vue.extend({
+            template: `<p>{{message}}</p>`,
+            data:function() {
+                return {
+                    message: 'hello, i am llz!'
+                }
+            },
+            mounted:function() {
+                console.log('mounted已被创建！')
+            },
+            destroyed:function() {
+                console.log('destroy销毁了')
+            },
+            updated:function() {
+                console.log('update 更新之后')
+            }
+        }) 
+        var vm = new llz().$mount('#app');
+        function destroy() {
+            vm.$destroy();
+        }
+        function reload() {
+            vm.$forceUpdate();
+        }
+        function tick() {
+            vm.message='message更改';
+            vm.$nextTick(function() {
+                console.log('message更新以后我被调用了')
+            })
+        }
+    </script>
+</body>
+</html>

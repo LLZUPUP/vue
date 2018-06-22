@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../asset/js/vue.js"></script>
+</head>
+<body>
+    <h1>example03</h1>
+    <hr>
+    <div id="app">
+        <p>{{num}}</p>
+        <!-- <p><button @click="add">ADD</button></p> -->
+    </div>
+    <p><button onclick="reduce()">Reduce</button></p>
+    <p><button onclick="add()">ADD</button></p>
+    <p><button onclick="reduceOnce()">ReduceOnce</button></p>
+    <p><button onclick="off()">关闭</button></p>
+     
+    <script>
+        
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 1
+            },
+            methods: {
+                // add:function() {
+                //     console.log('我是原生的方法')
+                //     this.num++;
+                // }
+            },
+            
+        })
+        app.$on('add',function() {
+            console.log('执行了add方法')
+            this.num++;
+        })
+        app.$on("reduce",function() {
+            console.log('执行了reduce方法')
+            this.num--;
+        })
+        app.$once("reduceOnce",function() {
+            console.log('只执行一次的方法')
+            this.num--;
+        })
+        function add() {
+            app.$emit('add')
+        }
+        function reduce() {
+            app.$emit('reduce');
+        }
+        function reduceOnce() {
+            app.$emit('reduceOnce');
+        }
+        function off() {
+            app.$off('add');
+        }
+    </script>
+</body>
+</html>
