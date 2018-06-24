@@ -16,6 +16,14 @@ export default {
         return {
             msg: 'params page'
         }
+    },
+    beforeRouteEnter: (to,from,next)=>{
+        console.log('准备进入params路由模版')
+        next()
+    },
+    beforeRouteLeave: (to,from,next)=> {
+        console.log('准备离开params路由模版')
+        next()
     }
 }
 </script>
