@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <el-button @click="doLoading" :loading="isLoading" icon="el-icon-edit" type="success"></el-button>
+      <el-button @click.native="doLoading" :loading="isLoading" icon="el-icon-edit" type="success"></el-button>
       <el-button icon="el-icon-edit" type="warning">提交</el-button>
       <el-button loading :disabled="disabled" type="danger">提交</el-button>
       <el-button :disabled="disabled" type="primary">提交</el-button>
@@ -30,8 +30,10 @@ export default {
   },
   methods:{
     doLoading() {
-      // return this.isLoading = true
-      console.log('aadsd')
+      this.isLoading = true;
+      setTimeout(()=>{
+        this.isLoading = false;
+      },300)
     }
   }
 }
