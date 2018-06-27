@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "element-ui": "^2.4.2",
+    "simplemde": "^1.11.2",
     "vue": "^2.5.2"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
+    "font-awesome": "^4.7.0",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "node-notifier": "^5.1.2",
@@ -42,6 +44,7 @@
     "sass-loader": "^7.0.3",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "showdown": "^1.8.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
