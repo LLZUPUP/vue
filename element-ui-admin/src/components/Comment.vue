@@ -16,7 +16,7 @@ export default {
             // totalData 所有的数据 => 当前页面的评论
             list: [],
             pagesize: 3,
-            totalData: [],
+            totalData: ['1:1','1:1','1:1','2:2','2:2','2:2','3:3','3:3','3:3'],
             totalCount: 0,
             currentPage: 1
         }
@@ -40,10 +40,16 @@ export default {
                 // this.list.reverse();
             }
             this.list.reverse();
-            this.currentPage = 1;
+            this.currentPage =1;
         },
         turnPage(curr) {
+            this.currentPage = curr;
+            let startCurr = (curr-1)*this.pagesize;
+            let endCurr = curr*this.pagesize;
+            this.list = this.totalData.slice(startCurr,endCurr);
             console.log(curr)
+            console.log(this.list)
+            
         }
     }
 }
