@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <article-table></article-table>
+    <!-- <el-alert title="消息提示" type="success"></el-alert> -->
+    <ele-alert v-if= "hasErr" @close="doAlertClose" title="天赐和美女困在电梯里" type="success" center></ele-alert>
+    <!-- <article-table></article-table> -->
     <!-- <comment></comment> -->
     <!-- <ele-radio-group v-model="sex">
       <ele-radio label="女"></ele-radio>
@@ -14,6 +16,7 @@
 </template>
 
 <script>
+import EleAlert from '@/components/EleAlert'
 // @表示alias 地址短链接，在哪里都指向src 让地址引入更轻松
 import ArticleTable from '@/views/ArticleTable'
 import Comment from '@/components/Comment'
@@ -29,13 +32,25 @@ export default {
     EleRadioGroup,
     EleRadio,
     Comment,
-    ArticleTable
+    ArticleTable,
+    EleAlert
   },
   data() {
     return {
+      hasErr: false,
       content: "邓志远：东京真的很热",
       contentHtml: "<span>邓志远：东京真的很热</span>",
       sex: 1
+    }
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.hasErr = true;
+    },2000)
+  },
+  methods: {
+    doAlertClose() {
+      console.log('close')
     }
   }
 }
