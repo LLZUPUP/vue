@@ -13,6 +13,6 @@ export default {
     getProducts(cb) {
         setTimeout(()=>{
             cb(_products)
-        },5000)
+        },500)
     }
 }

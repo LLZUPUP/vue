@@ -7,7 +7,10 @@ import goods from '@/components/goods/goods'
 import ratings from '@/components/ratings/ratings'
 import seller from '@/components/seller/seller'
 import store from './store'
+import { currency } from './currency'
 
+Vue.filter('currency',currency)
+ 
 
 import '@/common/stylus/index.styl'
 Vue.use(VueRouter)

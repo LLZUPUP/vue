@@ -25,6 +25,10 @@ const mutations = {
     setProducts(state,products) {
         console.log('入库，开始卸货，随时准备给组件使用')
         state.all = products
+    },
+    decrementProductInventory(state,{ id }) {
+        const product = state.all.find(product => product.id === id);
+        product.inventory--
     }
 }
 export default {
