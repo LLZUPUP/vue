@@ -12,6 +12,9 @@
         <section class="title_head ellipsis" v-if="headTitle">
             <span class="title_text">{{headTitle}}</span>
         </section>
+        <section v-if="goBack">
+            <slot name="changecity"></slot>
+        </section>
     </header>
 </template>
 <script>
