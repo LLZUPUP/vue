@@ -3,7 +3,7 @@ import * as types from './mutation-types'
 export default {
   // 增加总时间
   [types.ADD_TOTAL_TIME] (state, time) {
-    state.totalTime = state.totalTime + time
+    state.totalTime = state.totalTime + (+time)
   },
   // 减少总时间
   [types.DEC_TOTAL_TIME] (state, time) {

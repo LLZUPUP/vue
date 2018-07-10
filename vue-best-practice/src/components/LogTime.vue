@@ -25,7 +25,7 @@
 export default {
   data () {
     return {
-      date: '',
+      date: null,
       totalTime: '',
       comment: ''
     }
