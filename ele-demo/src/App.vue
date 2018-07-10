@@ -24,12 +24,12 @@ export default {
 // name + enter 进入的那一瞬间
 // .router-fade-enter-active 会在进入的整个过程中，完全进入之后会移出.router-fade-enter这个样式
   .router-fade-enter-active
-    transition opacity .3s
+    transition opacity .1s
   .router-fade-enter
     opacity 0
   .router-fade-leave
     opacity 1
   .router-fade-leave-active
-    transition opacity .3s
+    transition opacity .1s
     
 </style>

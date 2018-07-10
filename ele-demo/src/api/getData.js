@@ -15,6 +15,14 @@ export const currentcity = (cityid)=> new Promise((resolve,reject)=>{
         resolve(res)
     })
 })
+
+export const msiteFoodTypes = (geohash) => new Promise((resolve,reject) => {
+  http.get('/v2/index_entry',{
+    geohash,
+    group_type: '1',
+    'flags[]': 'F'
+  }).then(res => resolve(res.data))
+})
 // ajax xhr
 // fetch两大缺点 一兼容性 二 api 比较原始
 export const cityGuess = () => new Promise((resolve,reject)=>{
@@ -36,3 +44,4 @@ export const getCaptchas = () => new Promise((resolve,reject)=>{
         }
     }).then(res=>res.json()).then(data=>resolve(data)).catch(err=>reject(err))
 })
+
