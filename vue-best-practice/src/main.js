@@ -6,7 +6,9 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.css'
 import VueResource from 'vue-resource'
 import store from './store'
+import EventProxy from 'vue-event-proxy'
 
+Vue.use(EventProxy)
 Vue.use(VueResource)
 
 Vue.config.productionTip = false

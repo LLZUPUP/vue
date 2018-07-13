@@ -6027,6 +6027,10 @@ vue-eslint-parser@^2.0.3:
     esquery "^1.0.0"
     lodash "^4.17.4"
 
+vue-event-proxy@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-event-proxy/-/vue-event-proxy-1.0.3.tgz#b5bec0dc6a197d22a58f8b7b21bd9fb76de246f7"
+
 vue-hot-reload-api@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"

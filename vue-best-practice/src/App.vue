@@ -1,5 +1,19 @@
 <template>
   <div id="wrapper">
+    <p>
+      FullName: {{ fullName }}
+    </p>
+    <p>
+      FirstName: <input type="text" v-model= "firstName"/>
+    </p>
+    <p>
+      lastName: <input type="text" v-model= "lastName"/>
+    </p>
+    <p>obj.a {{obj.a}}</p>
+    <p>
+      obj.a  <input type="text" v-model= "obj.a">
+    </p>
+    <main-component></main-component>
     <nav class="navbar navbar-default">
       <div class="container">
         <a  class="navbar-brand">
@@ -28,11 +42,42 @@
 </template>
 
 <script>
+import mainComponent from '@/components/mainComponent'
 import Sidebar from '@/components/Sidebar'
 export default {
+  data () {
+    return {
+      firstName: '志远',
+      lastName: '邓',
+      fullName: '',
+      obj: {
+        a: 123
+      }
+    }
+  },
+  watch: {
+    firstName: {
+      handler (newName, oldName) {
+        this.fullName = newName + ' ' + this.lastName
+      },
+      immediate: true
+    },
+    obj: {
+      handler (newName, oldName) {
+        console.log('obj.a changed')
+      },
+      immediate: true,
+      deep: true
+    }
+    // firstName (newName, oldName) {
+    //   console.log(newName, oldName)
+    //   this.fullName = newName + ' ' + this.lastName
+    // }
+  },
   name: 'App',
   components: {
-    Sidebar
+    Sidebar,
+    mainComponent
   }
 }
 </script>
