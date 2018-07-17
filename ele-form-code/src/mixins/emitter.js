@@ -11,19 +11,18 @@ function broadcast(componentName, eventName, params) {
 }
 export default {
   methods: {
+    // 向上传递冒泡事件，$emit 只能向上传自定义事件
+    // 指定上级的某个组件，某个事件，来执行，并拿到我的参数
     dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root;
+      // $parent可以指向父组件
+      var parent = this.$parent;
       var name = parent.$options.componentName;
-
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-
-        if (parent) {
-          name = parent.$options.componentName;
-        }
+      console.log(name)
+      while(parent && (name !== componentName || !name)) {
+        parent = parent.$parent
       }
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
+      if(parent) {
+        parent.$emit.apply(parent, [eventName].concat(params))
       }
     },
     broadcast(componentName, eventName, params) {
