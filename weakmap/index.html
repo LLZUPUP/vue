@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="element" data-index="20"></div>
+  <a href="javascript:;" onclick="getData();">获取数据</a>
+  <script>
+    const ele = document.querySelector('.element')
+    let wm = new WeakMap()
+    wm.set(ele, '20')
+    function getData() {
+      alert(wm.get(ele))
+    }
+  </script>
+</body>
+</html>
